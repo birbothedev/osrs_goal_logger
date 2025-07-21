@@ -5,6 +5,13 @@
     text-align: center;
 }
 
+/* @font-face {
+    font-family: calSans;
+    src: url(CalSans-Regular.ttf);
+    font-weight: bold;
+} */
+
+
 .logo {
     height: 6em;
     padding: 1.5em;

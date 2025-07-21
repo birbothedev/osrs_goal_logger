@@ -1,0 +1,73 @@
+.player-card {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 15%;
+    height: 60%;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #1a1a1a;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.player-card:hover {
+    transform: translateY(-5px);
+}
+
+.page-title {
+    position: absolute;
+    top: 10%;
+}
+
+.player-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.8)
+    );
+    opacity: 0;
+    transition: opacity 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem;
+}
+
+.player-card:hover {
+    opacity: 1;
+}
+
+.player-info {
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.player-info h3 {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.player-info p {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .player-card {
+        font-size: 0.9rem;
+    }
+
+    .player-info {
+        padding: 0.75rem;
+    }
+}

@@ -21,7 +21,7 @@
     top: 10%;
 }
 
-.player-overlay {
+/* .player-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -38,7 +38,7 @@
     flex-direction: column;
     justify-content: flex-end;
     padding: 1rem;
-}
+} */
 
 .player-card:hover {
     opacity: 1;

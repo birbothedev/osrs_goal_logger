@@ -1,3 +1,37 @@
 .rec-component {
     align-items: center;
 }
+
+.rec-component-card {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background-color: #1a1a1a;
+    transition: transform 0.2s;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+.active, .collapsible:hover {
+    background-color: #555;
+}
+
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+}

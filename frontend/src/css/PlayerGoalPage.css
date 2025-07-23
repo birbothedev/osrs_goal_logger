@@ -30,5 +30,7 @@
 }
 
 .rec-component-wrapper {
-    padding-left: 3%;
+    width: 40%;
+    padding-left: 5%;
+    text-align: center;
 }

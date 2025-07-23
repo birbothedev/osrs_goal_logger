@@ -3,6 +3,8 @@ import { SkillCard } from "./SkillCard"
 import { SkillGrid } from "./SkillGrid"
 import { useState } from "react"
 
+
+
 export function PlayerCard({ player, onSkillClick }){
 
     return <div className="player-card">

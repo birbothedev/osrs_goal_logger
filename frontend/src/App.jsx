@@ -1,4 +1,4 @@
-
+import { useLocation } from "react-router-dom"
 import './css/App.css'
 import { HomePage } from './pages/Home'
 import { PlayerGoalPage } from './pages/PlayerGoalPage'

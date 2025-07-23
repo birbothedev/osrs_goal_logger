@@ -1,4 +1,4 @@
-import "../css/component-css/SkillCard.css"
+import "../css/component-css/GoalPageCards.css"
 
 export function SkillCard({player, skill}) {
     // leave empty if no skill selected

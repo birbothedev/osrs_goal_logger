@@ -1,0 +1,18 @@
+.quest-card, .skill-card {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background-color: #1a1a1a;
+    transition: transform 0.2s;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.quest-card:hover, .skill-card:hover {
+    transform: translateY(-5px);
+}
+
+.quest-text, .skill-text {
+    margin-top: 0;
+}

@@ -4,11 +4,13 @@ import { SkillCard } from "../components/SkillCard"
 import { RecComponent } from "../components/RecComponent"
 import { useState } from "react"
 import { QuestCard } from "../components/QuestCard"
-import "../css/PlayerGoalPage.css"
+import "../css/pages-css/PlayerGoalPage.css"
 
 export function PlayerGoalPage() {
     const { state } = useLocation();
     const player = state?.player;
+    const quests = state?.quests;
+    console.log("quests in PlayerGoalPage:", quests);
     const [selectedSkill, setSelectedSkill] = useState(null);
 
     if (!player) {
@@ -17,18 +19,18 @@ export function PlayerGoalPage() {
         </div>;
     }
     return (
-        <div className="player-goal-wrapper">
-            <div className="playerGoalPage">
+        <div className="playerGoalPage">
+            <div className="left-cards">
                 <div className="player-card">
-                    <PlayerCard player={player} onSkillClick={setSelectedSkill}/>
+                    <PlayerCard player={player} onSkillClick={setSelectedSkill} />
                 </div>
-                <div className="right-cards">
-                    <QuestCard />
+                <div className="skill-card">
                     <SkillCard player={player} skill={selectedSkill} />
                 </div>
-                <div className="rec-component-wrapper">
-                    <RecComponent />
-                </div>
+            </div>
+            <div className="right-cards">
+                <QuestCard quests={quests}/>
+                <RecComponent />
             </div>
         </div>
     );

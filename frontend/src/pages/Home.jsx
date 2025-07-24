@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getPlayerFromUsername } from "../services/api";
+import { getCompletedQuestsFromUsername, getPlayerFromUsername } from "../services/api";
 import { useNavigate } from "react-router-dom";
 
 export function HomePage() {
@@ -20,7 +20,10 @@ export function HomePage() {
         setLoading(true)
         try {
             const player = await getPlayerFromUsername(searchQuery)
-            navigate("/playergoalpage", { state: { player } })
+            const questsResponse = await getCompletedQuestsFromUsername(searchQuery)
+            const quests = questsResponse.quests
+            console.log("Quests returned:", quests);
+            navigate("/playergoalpage", { state: { player, quests } })
             setError(null)
         } catch (err) {
             console.log(err)
@@ -33,6 +36,11 @@ export function HomePage() {
 
     return (
         <div className="username-container">
+            {loading ? (
+                <div className="loading">Loading...</div> 
+            ) : (
+                <p>Search for a player to begin.</p>
+            )}
             <div className="username-input">
                 <form onSubmit={handleSearch} className="search-form">
                     <input 
@@ -46,12 +54,6 @@ export function HomePage() {
                 </form>
 
                 {error && <div className="error-message">{error}</div>}
-
-                {loading ? (
-                    <div className="loading">Loading...</div> 
-                ) : (
-                    <p>this is the home page</p>
-                )}
             </div>
         </div>
     );

@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const { WOMClient } = require('@wise-old-man/utils');
 
-// wiki backend imports
+// backend imports
 const fetch = require('node-fetch');
 
 // wom backend
@@ -36,8 +36,6 @@ app.listen(port, () => {
 
 
 // wiki backend
-const fetch = require('node-fetch'); // Make sure node-fetch@2 is installed
-
 app.get('/api/quests', async (req, res) => {
     const { username } = req.query;
 
@@ -45,7 +43,7 @@ app.get('/api/quests', async (req, res) => {
         return res.status(400).json({ error: 'Username parameter is required' });
     }
 
-    const url = `https://apps.runescape.com/runemetrics/quests?user=${encodeURIComponent(username)}`;
+    const url = `https://apps.runescape.com/runemetrics/profile/profile?user=${encodeURIComponent(username)}&activities=20`;
 
     try {
         const response = await fetch(url, {

@@ -1,5 +1,4 @@
 .quest-card, .skill-card {
-    width: 100%;
     height: 100%;
     border-radius: 8px;
     background-color: #1a1a1a;
@@ -7,6 +6,14 @@
     padding: 1rem;
     display: flex;
     flex-direction: column;
+}
+
+.quest-card {
+    width: 95%;
+}
+
+.skill-card {
+    width: 90%;
 }
 
 .quest-card:hover, .skill-card:hover {

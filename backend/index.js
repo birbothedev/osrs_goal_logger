@@ -37,30 +37,26 @@ app.listen(port, () => {
 
 // wiki backend
 app.get('/api/quests', async (req, res) => {
-    const { username } = req.query;
-
-    if (!username) {
-        return res.status(400).json({ error: 'Username parameter is required' });
-    }
-
-    const url = `https://apps.runescape.com/runemetrics/profile/profile?user=${encodeURIComponent(username)}&activities=20`;
+    const url = 'https://oldschool.runescape.wiki/api.php?action=query&list=categorymembers&cmtitle=Category:Quests&cmlimit=max&format=json';
 
     try {
         const response = await fetch(url, {
             headers: {
-                'User-Agent': 'birbothealpha/1.0' 
+                'User-Agent': 'birbothealpha/1.0'
             }
         });
 
         if (!response.ok) {
-            return res.status(response.status).json({ error: 'Failed to fetch quest data from RuneMetrics' });
+            return res.status(response.status).json({ error: 'Failed to fetch quest data from OSRS Wiki' });
         }
 
         const data = await response.json();
-        res.json(data);
+        const quests = data.query?.categorymembers || [];
+
+        res.json({ quests });
 
     } catch (error) {
-        console.error('RuneMetrics quests API error:', error);
+        console.error('OSRS Wiki quests API error:', error);
         res.status(500).json({ error: 'Internal server error fetching quests' });
     }
 });

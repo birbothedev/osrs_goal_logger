@@ -31,7 +31,6 @@ export function HomePage() {
         } finally {
             setLoading(false)
         }
-        
     };
 
     return (
